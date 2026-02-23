@@ -1,0 +1,157 @@
+.container {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-spotlight);
+  pointer-events: auto;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background-color: var(--background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-4);
+  gap: var(--spacing-4);
+}
+
+.visible {
+  opacity: 1;
+}
+
+.mockGameContainer {
+  flex: 1;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.tutorialCard {
+  width: 100%;
+  max-width: 600px;
+  background-color: var(--surface);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-5);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(212, 175, 55, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+/* Decorative top border */
+.tutorialCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  height: 3px;
+  background: var(--primary);
+  box-shadow: 0 2px 8px var(--primary);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-1);
+}
+
+.stepIndicator {
+  font-family: var(--font-family-monospace);
+  font-size: 0.75rem;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.skipButton {
+  background: none;
+  border: none;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  cursor: pointer;
+  padding: var(--spacing-1);
+  border-radius: var(--radius-sm);
+  transition: color 0.2s;
+}
+
+.skipButton:hover {
+  color: var(--foreground);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.text {
+  font-family: var(--font-family-base);
+  font-size: 0.95rem;
+  color: var(--foreground);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--spacing-2);
+}
+
+.dots {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--muted);
+  transition: background-color 0.3s;
+}
+
+.activeDot {
+  background-color: var(--accent);
+  box-shadow: 0 0 5px var(--accent);
+}
+
+.nextButton {
+  font-family: var(--font-family-heading);
+  letter-spacing: 0.05em;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: var(--spacing-2);
+    gap: var(--spacing-2);
+  }
+
+  .tutorialCard {
+    padding: var(--spacing-4);
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .text {
+    font-size: 0.875rem;
+  }
+}

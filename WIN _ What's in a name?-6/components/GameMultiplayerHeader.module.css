@@ -1,0 +1,105 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-3) var(--spacing-4);
+  background-color: var(--surface);
+  border-bottom: 2px solid var(--primary);
+  z-index: var(--z-nav);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+  height: 3.5rem;
+  gap: var(--spacing-3);
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.exitButton {
+  color: var(--muted-foreground);
+}
+
+.exitButton:hover {
+  color: var(--destructive);
+  background-color: color-mix(in srgb, var(--destructive), transparent 90%);
+}
+
+.roundBadge {
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  color: var(--foreground);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.roomCode {
+  font-family: var(--font-family-monospace);
+  font-size: 0.7rem;
+  color: var(--muted-foreground);
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.passButton {
+  color: #4facfe; /* Blue */
+  font-size: 1.2rem;
+  height: 2rem;
+  padding: 0 var(--spacing-3);
+  border: 1px solid rgba(79, 172, 254, 0.3);
+}
+
+.passButton:hover:not(:disabled) {
+  background-color: rgba(79, 172, 254, 0.1);
+  color: #4facfe;
+  border-color: #4facfe;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  font-family: var(--font-family-monospace);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--foreground);
+  transition: color 0.3s ease;
+}
+
+.timer[data-urgent="true"] {
+  color: var(--error);
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+.passCounter {
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(255, 193, 7, 0.15);
+  color: #facc15;
+  font-weight: 600;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+}

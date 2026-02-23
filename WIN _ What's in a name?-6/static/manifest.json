@@ -1,0 +1,28 @@
+{
+  "name": "WIN : What's in a name?",
+  "short_name": "WIN",
+  "description": "A fast-paced competitive word game playable solo vs AI or multiplayer with friends",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#1a1a1a",
+  "background_color": "#1a1a1a",
+  "icons": [
+    {
+      "src": "https://assets.floot.app/8790acc4-fa78-4d24-90e7-5829c9bbd59c/2542e8fd-f7e6-4bcf-89f7-5cbb026cd73f.png?w=192&h=192&fit=cover",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://assets.floot.app/8790acc4-fa78-4d24-90e7-5829c9bbd59c/2542e8fd-f7e6-4bcf-89f7-5cbb026cd73f.png?w=512&h=512&fit=cover",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "games",
+    "entertainment"
+  ]
+}

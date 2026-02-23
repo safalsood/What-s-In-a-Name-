@@ -1,0 +1,165 @@
+@import url(https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
+
+
+
+
+:root {
+  /* Content layers */
+  --z-content-low: 10; /* Minor elevated content */
+  --z-content: 20; /* Standard elevated content */
+  --z-content-high: 30; /* Important content that needs prominence */
+
+  /* Navigation layers */
+  --z-nav-low: 100; /* Secondary navigation components */
+  --z-nav: 200; /* Primary navigation bars */
+  --z-nav-sticky: 300; /* Sticky navigation elements */
+
+  /* Overlay layers */
+  --z-overlay: 400;
+
+  --z-spotlight: 1000; /* Tutorial spotlights/guided help */
+
+  /* System layers */
+  --z-critical: 2000; /* Critical system notifications */
+
+  /* spacing */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-7: 1.75rem;
+  --spacing-8: 2rem;
+  --spacing-9: 2.25rem;
+  --spacing-10: 2.5rem;
+  --spacing-11: 2.75rem;
+  --spacing-12: 3rem;
+  --spacing-13: 3.25rem;
+  --spacing-14: 3.5rem;
+  --spacing-15: 3.75rem;
+  --spacing-16: 4rem;
+  --spacing-17: 4.25rem;
+  --spacing-18: 4.5rem;
+  --spacing-19: 4.75rem;
+  --spacing-20: 5rem;
+}
+
+:root {
+  /* Theme: Rustic Pub (Classic Shakespearean Edition) */
+  
+  /* Background: Rich Warm Wood Brown (#3d2314) */
+  --background: #3d2314;
+  /* Complex repeating linear gradient to simulate wood planks */
+  --background-image: 
+    repeating-linear-gradient(90deg, 
+      rgba(61, 35, 20, 0.95) 0px, 
+      rgba(92, 58, 33, 0.95) 40px, 
+      rgba(74, 44, 23, 0.95) 80px, 
+      rgba(107, 68, 35, 0.95) 120px, 
+      rgba(61, 35, 20, 0.95) 160px
+    );
+  --foreground: #E9D8A6; /* Cream */
+
+  /* Surface/Card: Wood-like brown mixed with teal tint */
+  --surface: #2b1d15; /* Dark wood base */
+  --surface-foreground: #E9D8A6;
+  
+  --sidebar: #3d2314;
+  --sidebar-foreground: #E9D8A6;
+
+  --card: #2b1d15;
+  --card-foreground: #E9D8A6;
+
+  --popup: #2b1d15;
+  --popup-foreground: #E9D8A6;
+
+  /* Primary: Golden Orange */
+  --primary: #EE9B00;
+  --primary-foreground: #001219;
+
+  /* Secondary: Teal */
+  --secondary: #0A9396;
+  --secondary-foreground: #E9D8A6;
+
+  /* Accent: Cream/Beige */
+  --accent: #E9D8A6;
+  --accent-foreground: #001219;
+
+  /* Muted: Light Mint */
+  --muted: #005F73;
+  --muted-foreground: #94D2BD;
+
+  /* Status Colors */
+  --success: #0A9396; /* Teal */
+  --success-foreground: #E9D8A6;
+
+  --error: #AE2012; /* Deep red */
+  --error-foreground: #E9D8A6;
+
+  --warning: #EE9B00; /* Golden orange */
+  --warning-foreground: #001219;
+
+  --info: #94D2BD; /* Light mint/seafoam */
+  --info-foreground: #001219;
+  --info-hover: #0A9396;
+  --info-active: #E9D8A6;
+
+  /* Game Specific Colors */
+  --tile-bg: #4a2c17; /* Wood-toned */
+  --tile-border: #EE9B00; /* Golden */
+  --timer-bar: #BB3E03; /* Rust */
+
+  --border: #CA6702; /* Burnt orange (Wood trim) */
+
+  /* Font Families - Elegant and Classic Update */
+  /* Playfair Display for a refined, classic serif heading */
+  --font-family-heading: 'Playfair Display', serif;
+  /* Lato for clean, modern readability */
+  --font-family-base: 'Lato', sans-serif;
+  /* Space Mono for clean personality */
+  --font-family-monospace: 'Space Mono', monospace;
+  --font-family-cursive: 'Playfair Display', serif;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows - Warm brown shadows */
+  --shadow: 0 4px 0 0 rgba(61, 35, 20, 0.6);
+  --shadow-md: 0 8px 0 0 rgba(61, 35, 20, 0.6);
+  --shadow-lg: 0 12px 0 0 rgba(61, 35, 20, 0.6);
+  --shadow-focus: 0 0 0 4px rgba(238, 155, 0, 0.6);
+
+  /* Animation */
+  --animation-duration-fast: 0.2s;
+  --animation-duration-normal: 0.35s;
+  --animation-duration-slow: 0.6s;
+
+  /* Chart colors - Rustic Palette */
+  --chart-color-1: #EE9B00; /* Golden Orange */
+  --chart-color-2: #0A9396; /* Teal */
+  --chart-color-3: #AE2012; /* Deep Red */
+  --chart-color-4: #94D2BD; /* Light Mint */
+  --chart-color-5: #E9D8A6; /* Cream */
+}
+
+/* Applying the wood texture to body via global selector usually needed, 
+   but since this file is variables only, we set the variable for use. 
+   Assuming the main app container uses `background: var(--background)` 
+   and ideally `background-image: var(--background-image)`. 
+*/
+body {
+  background-color: var(--background);
+  background-image: var(--background-image);
+  color: var(--foreground);
+}
+
+.dark {
+  /* Default theme handles the look */
+}

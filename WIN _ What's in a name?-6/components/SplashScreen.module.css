@@ -1,0 +1,305 @@
+.container {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-critical);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: var(--primary);
+  font-family: var(--font-family-heading);
+  
+  /* Fade out entire screen at the end */
+  animation: screenFadeOut 1s ease-in-out forwards;
+  animation-delay: 5s;
+  pointer-events: none;
+}
+
+/* --- Colors & Variables --- */
+.container {
+  --velvet-base: #6B0F1A;
+  --velvet-dark: #2A0406;
+  --velvet-light: #8B1A1A;
+  --velvet-highlight: #9E2A2B;
+  --gold-trim-start: #C5A059;
+  --gold-trim-mid: #EBC985;
+  --gold-trim-end: #8C6A36;
+}
+
+/* --- Dark Stage Background & Spotlight --- */
+.stageBackground {
+  position: absolute;
+  inset: 0;
+  background-color: #050505; /* Deep black/dark stage */
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spotlight {
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120vh; /* Large spread */
+  height: 120vh;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 250, 240, 0.15) 0%, /* Soft warm white center */
+    rgba(255, 250, 240, 0.05) 40%,
+    transparent 70%
+  );
+  filter: blur(40px);
+  pointer-events: none;
+  opacity: 0;
+  animation: spotlightOn 2s ease-out forwards;
+  animation-delay: 1.5s; /* Lights come on as curtains finish opening */
+}
+
+/* --- Red Velvet Curtains --- */
+/* Simplified for cleaner look but retaining rich texture */
+.curtainLeft,
+.curtainRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 100;
+  overflow: hidden;
+  transition-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+
+.curtainLeft {
+  left: 0;
+  animation: curtainOpenLeft 3s cubic-bezier(0.25, 1, 0.5, 1) forwards; /* Slower, more elegant ease */
+  animation-delay: 0.5s;
+}
+
+.curtainRight {
+  right: 0;
+  animation: curtainOpenRight 3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.5s;
+}
+
+.curtainFabric {
+  position: absolute;
+  inset: 0;
+  display: flex;
+}
+
+.curtainFold {
+  flex: 1;
+  background: linear-gradient(
+    90deg,
+    var(--velvet-dark) 0%,
+    var(--velvet-base) 35%,
+    var(--velvet-highlight) 50%,
+    var(--velvet-base) 65%,
+    var(--velvet-dark) 100%
+  );
+  box-shadow: inset 0 0 6rem rgba(0,0,0,0.8); /* Deeper shadows for darker stage */
+}
+
+.curtainHem {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 10rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.curtainTrim {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1.5rem; /* Thinner, more elegant trim */
+  background: linear-gradient(
+    to right,
+    var(--gold-trim-end),
+    var(--gold-trim-mid),
+    var(--gold-trim-end)
+  );
+  z-index: 10;
+  box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+.curtainLeft .curtainTrim {
+  right: 0;
+}
+
+.curtainRight .curtainTrim {
+  left: 0;
+}
+
+/* --- Stage Content --- */
+.stageContent {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: contentFadeIn 1.5s ease-out forwards;
+  animation-delay: 2s;
+}
+
+/* --- Watermark --- */
+.watermarkContainer {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.watermark {
+  height: 100%;
+  width: auto;
+  max-width: none;
+  object-fit: cover;
+  opacity: 0.2;
+  filter: sepia(100%) hue-rotate(-30deg) saturate(0.5);
+  mix-blend-mode: screen;
+  transform: scale(1.5) translateY(5%); /* Zoom in on face */
+}
+
+/* --- Title Group --- */
+.titleGroup {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-top: 2rem; /* Much closer to the center/image */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.mainTitle {
+  font-family: var(--font-family-heading);
+  font-size: 8rem;
+  line-height: 1;
+  font-weight: 700;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+  letter-spacing: 0.1em;
+  opacity: 0;
+  transform: translateY(2rem);
+  animation: titleRise 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: 2.5s;
+  
+  display: flex;
+  gap: 0.2rem;
+}
+
+.letterW {
+  color: var(--primary);
+}
+
+.letterI {
+  color: var(--primary);
+}
+
+.letterN {
+  color: var(--primary);
+}
+
+.subtitle {
+  font-family: var(--font-family-heading);
+  font-style: normal;
+  font-size: 2.5rem;
+  color: var(--foreground);
+  opacity: 0.9;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  animation: subtitleFade 1.5s ease-out forwards;
+  animation-delay: 3.2s;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+/* --- Keyframe Animations --- */
+
+@keyframes curtainOpenLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes curtainOpenRight {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes spotlightOn {
+  from { opacity: 0; transform: translateX(-50%) scale(0.8); }
+  to { opacity: 1; transform: translateX(-50%) scale(1); }
+}
+
+@keyframes contentFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes titleRise {
+  from { opacity: 0; transform: translateY(2rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes subtitleFade {
+  from { opacity: 0; }
+  to { opacity: 0.9; }
+}
+
+@keyframes screenFadeOut {
+  0% { opacity: 1; pointer-events: all; }
+  100% { opacity: 0; pointer-events: none; }
+}
+
+/* --- Responsive Design --- */
+
+@media (max-width: 768px) {
+  .watermark {
+    opacity: 0.12;
+    height: 70%;
+  }
+
+  .mainTitle {
+    font-size: 5rem;
+  }
+
+  .subtitle {
+    font-size: 1.8rem;
+  }
+  
+  .titleGroup {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainTitle {
+    font-size: 4rem;
+  }
+  
+  .subtitle {
+    font-size: 1.4rem;
+  }
+
+  .curtainTrim {
+    width: 0.75rem;
+  }
+}

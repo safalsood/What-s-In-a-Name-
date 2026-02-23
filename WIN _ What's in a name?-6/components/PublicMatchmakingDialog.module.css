@@ -1,0 +1,38 @@
+.dialogContent {
+  max-width: 28rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-4);
+}
+
+.formActions {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+  margin-top: var(--spacing-2);
+}
+
+.authNotice {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3);
+  background-color: color-mix(in srgb, var(--info) 10%, transparent);
+  border: 1px solid var(--info);
+  border-radius: var(--radius);
+  color: var(--info-foreground);
+  font-size: 0.875rem;
+  margin-bottom: var(--spacing-2);
+}
+
+.inlineLink {
+  height: auto;
+  padding: 0;
+  vertical-align: baseline;
+  color: var(--primary);
+  font-weight: 600;
+}

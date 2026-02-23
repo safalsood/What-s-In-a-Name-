@@ -1,0 +1,213 @@
+.container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: var(--background);
+  background-image: var(--background-image);
+  color: var(--foreground);
+  padding: var(--spacing-4);
+}
+
+/* Dark overlay to make text pop against the wood texture */
+.backgroundOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+  pointer-events: none;
+}
+
+.loadingContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background);
+  background-image: var(--background-image);
+}
+
+.content {
+  position: relative;
+  z-index: var(--z-content);
+  width: 100%;
+  max-width: 28rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+  animation: fadeIn 0.5s ease-out;
+}
+
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.logoLink:hover {
+  transform: scale(1.05);
+}
+
+.logoIcon {
+  color: var(--primary);
+  filter: drop-shadow(0 0 8px rgba(238, 155, 0, 0.4));
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.titleW { color: var(--primary); }
+.titleI { color: var(--primary); }
+.titleN { color: var(--primary); }
+
+.subtitle {
+  font-family: var(--font-family-heading);
+  font-size: 1.25rem;
+  color: var(--accent);
+  margin: 0;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Wood grain effect on card border */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  padding: 2px;
+  background: linear-gradient(to bottom right, rgba(255,255,255,0.1), rgba(0,0,0,0.2));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabsList {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: var(--spacing-1);
+  border-bottom: 1px solid var(--border);
+}
+
+.tabTrigger {
+  flex: 1;
+  font-family: var(--font-family-heading);
+  font-size: 1.1rem;
+  padding: var(--spacing-3);
+  color: var(--muted-foreground);
+}
+
+.tabTrigger[data-state="active"] {
+  color: var(--primary);
+  background-color: transparent;
+}
+
+/* Custom indicator for tabs to match theme */
+.tabTrigger[data-state="active"]::after {
+  background-color: var(--primary);
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+}
+
+.formContainer {
+  padding: var(--spacing-6) var(--spacing-6) var(--spacing-8);
+}
+
+.tabContent {
+  animation: slideIn 0.3s ease-out;
+}
+
+.tabHeader {
+  text-align: center;
+  margin-bottom: var(--spacing-6);
+}
+
+.tabHeader h2 {
+  font-family: var(--font-family-heading);
+  font-size: 1.5rem;
+  color: var(--foreground);
+  margin: 0 0 var(--spacing-2);
+}
+
+.tabHeader p {
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.backLink {
+  color: var(--muted-foreground);
+  font-family: var(--font-family-base);
+  gap: var(--spacing-2);
+}
+
+.backLink:hover {
+  color: var(--primary);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { 
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .content {
+    max-width: 100%;
+  }
+  
+  .formContainer {
+    padding: var(--spacing-4) var(--spacing-4) var(--spacing-6);
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+}

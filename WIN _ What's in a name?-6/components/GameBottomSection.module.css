@@ -1,0 +1,408 @@
+.bottomSection {
+  flex-shrink: 0;
+  background-color: var(--surface);
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
+  padding: var(--spacing-3) var(--spacing-4) var(--spacing-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  z-index: var(--z-content-low);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.inputRow {
+  display: flex;
+  gap: var(--spacing-2);
+  align-items: stretch;
+}
+
+.gameInput {
+  font-family: var(--font-family-monospace);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  height: 3rem;
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-color: var(--border);
+}
+
+.submitMiniBtn {
+  height: 3rem;
+  padding: 0 var(--spacing-4);
+  font-size: 1.1rem;
+  white-space: nowrap;
+  font-family: var(--font-family-heading);
+}
+
+.bonusAlert {
+  color: var(--accent);
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  animation: bounce 1s infinite;
+  padding: 0 var(--spacing-2);
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.bottomGrid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--spacing-2);
+  align-items: start;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  justify-content: space-between;
+  height: 100%;
+}
+
+.columnDivider {
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--border),
+    transparent
+  );
+  height: 100%;
+  opacity: 0.3;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  padding: 0;
+}
+
+.grandCategorySection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.grandCategoryLabel {
+  font-family: var(--font-family-heading);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #22c55e;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(255, 183, 0, 0.3);
+}
+
+.grandCategoryValue {
+  font-family: var(--font-family-heading);
+  font-size: 1.5rem;
+  color: #ef4444;
+  font-weight: 800;
+  line-height: 1.2;
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.5),
+    0 0 15px rgba(255, 215, 0, 0.2);
+  letter-spacing: 0.02em;
+}
+
+.grandInputWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.submitGrandBtn {
+  width: 100%;
+  height: 3rem;
+  font-family: var(--font-family-heading);
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  background-color: #facc15;
+  border: 3px solid #ef4444;
+  color: #ef4444;
+}
+
+.submitGrandBtn:hover:not(:disabled) {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.ownedLettersLabel {
+  font-family: var(--font-family-heading);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #4ade80; /* Green */
+  font-weight: 600;
+  text-align: left;
+  text-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
+}
+
+.ownedLettersTiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  align-items: flex-start;
+  flex: 1;
+}
+
+.ownedLetterTile {
+  width: 1.75rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: none; /* Green tint bg */
+  border: not; /* Green border */
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #4ade80; /* Green text */
+  box-shadow: none;
+  flex-shrink: 0;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.emptyLetters {
+  font-family: var(--font-family-monospace);
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  opacity: 0.4;
+  font-style: italic;
+  margin-top: var(--spacing-1);
+}
+
+.otherPlayersSection {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: var(--spacing-3);
+  margin-top: var(--spacing-2);
+}
+
+.otherPlayersToggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  color: var(--muted-foreground);
+  font-family: var(--font-family-heading);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  padding: var(--spacing-2);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.otherPlayersToggle:hover {
+  color: var(--foreground);
+}
+
+.otherPlayersList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  margin-top: var(--spacing-2);
+}
+
+.otherPlayerItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2);
+  border-radius: var(--radius-sm);
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.otherPlayerInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.otherPlayerIcon {
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.otherPlayerName {
+  font-family: var(--font-family-heading);
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.otherLetterCount {
+  font-family: var(--font-family-monospace);
+  font-size: 0.7rem;
+  color: var(--muted-foreground);
+  font-weight: 700;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.otherPlayerTiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-1);
+  padding-left: calc(0.875rem + var(--spacing-2));
+}
+
+.otherPlayerTile {
+  width: 1.5rem;
+  height: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}
+
+/* Keyboard Mode Compact Styles */
+.keyboardMode {
+  padding: var(--spacing-2) var(--spacing-4) var(--spacing-2);
+  gap: var(--spacing-2);
+}
+
+.keyboardMode .bottomGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  align-items: start;
+  gap: var(--spacing-4);
+}
+
+.keyboardMode .leftColumn {
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--spacing-2);
+  width: auto;
+  justify-content: flex-start;
+}
+
+.keyboardMode .columnDivider {
+  display: none;
+}
+
+.keyboardMode .grandCategorySection {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.keyboardMode .grandCategoryLabel {
+  font-size: 0.65rem;
+  margin-bottom: 2px;
+}
+
+.keyboardMode .grandCategoryValue {
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.keyboardMode .grandInputWrapper {
+  margin-top: auto;
+}
+
+.keyboardMode .submitGrandBtn {
+  height: 2.25rem;
+  padding: 0 var(--spacing-2);
+  font-size: 1.2rem;
+  width: 100%;
+}
+
+.keyboardMode .rightColumn {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-1);
+  padding: 0;
+  flex: 1;
+  justify-content: flex-start;
+}
+
+.keyboardMode .ownedLettersLabel {
+  font-size: 0.65rem;
+  margin-bottom: 2px;
+}
+
+.keyboardMode .ownedLettersTiles {
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.keyboardMode .ownedLetterTile {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.8rem;
+}
+
+.keyboardMode .emptyLetters {
+  font-size: 0.75rem;
+}
+
+.keyboardMode .otherPlayersSection {
+  display: none; /* Hide other players in keyboard mode to save space */
+}
+
+@media (min-width: 768px) {
+  .bottomSection {
+    padding: var(--spacing-6);
+  }
+
+  .bottomGrid {
+    gap: var(--spacing-8);
+  }
+
+  .gameInput {
+    font-size: 1rem;
+  }
+
+  .submitMiniBtn {
+    font-size: 1rem;
+  }
+
+  .grandCategoryValue {
+    font-size: 1.5rem;
+  }
+}
